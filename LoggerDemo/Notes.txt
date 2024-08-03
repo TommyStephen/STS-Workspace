@@ -1,0 +1,48 @@
+1.  Create a new Spring Boot project using Spring Initializr. 
+	When creating the project, include the following dependencies:
+		Spring Web
+		Spring Devtools
+		Lombok
+		
+2.	External dependencies:
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+            <version>3.2.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
+        </dependency>
+        
+3.	Add the Log4j 2 Configuration File
+	We can create the log4j2.xml file in the src/main/resources 
+	directory and put the below code.  This configuration directs the 
+	INFO level logs to the both the console and the file. 
+	Files can rotate based on the time or when they reached to 10MB.
+	
+4.	Implement the Logging in the Spring Application
+	
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+@RestController
+public class LoggingController {
+
+    private static final Logger logger = LogManager.getLogger(LoggingController.class);
+
+    @GetMapping("/log")
+    public String logExample() {
+        logger.info("Info level log example");
+        logger.debug("Debug level log example");
+        logger.error("Error level log example", new Exception("Example exception"));
+        return "Logging has been demonstrated. Check the console and the log file!";
+    }
+}
+	
+	
+	
+	
+	

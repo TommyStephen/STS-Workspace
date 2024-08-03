@@ -1,0 +1,25 @@
+1.  Create a new Spring Boot project using Spring Initializr. 
+	When creating the project, include the following dependencies:
+		Spring Web
+		Spring Devtools
+		Lombok
+		
+2.	External dependencies:
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+            <version>3.2.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
+        </dependency>
+        
+3.	Add the Log4j 2 Configuration File
+	We can create the log4j2.xml file in the src/main/resources 
+	directory and put the below code.
+	
+	
+	
+	
+	

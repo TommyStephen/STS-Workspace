@@ -1,0 +1,47 @@
+package com.sixdee.im.buyback.core.controllers;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.sixdee.im.buyback.core.pojo.request.BuyBackSubmit;
+import com.sixdee.im.buyback.core.services.BuyBackService;
+import com.sixdee.im.commons.base.BaseController;
+import com.sixdee.im.commons.common.BusinessException;
+import com.sixdee.im.commons.common.Constants;
+import com.sixdee.im.commons.common.Response;
+
+import io.swagger.v3.oas.annotations.Operation;
+
+@RestController
+@RequestMapping(value = Constants.API_V1 + "/buyBack")
+public class BuyBackController extends BaseController {
+	
+	@Autowired
+	private BuyBackService backService;
+
+	private static final String BUYBACK_STORE_SUBMIT = "/store/submit";
+	
+	@PostMapping(value = BUYBACK_STORE_SUBMIT)
+	@Transactional(rollbackFor = Exception.class)
+	@Operation(summary = "Store to Operator Stock Return")
+	public ResponseEntity<Response> buyBackSubmit(@RequestBody @Valid BuyBackSubmit request)
+			throws BusinessException {
+
+//		logRequest(BUYBACK_STORE_SUBMIT, request, APILoggingConstants.BYBACK_STORE_SUBMIT);
+//
+//		checkHeader(requestHeader);
+//
+//		Response response = backService.buyBackSubmit(request);
+//
+//		logResponse(BUYBACK_STORE_SUBMIT, response, APILoggingConstants.BYBACK_STORE_SUBMIT);
+//
+//		return ResponseEntity.ok(response);
+	}
+}

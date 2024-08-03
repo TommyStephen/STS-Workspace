@@ -1,0 +1,6 @@
+package study.service;
+
+public interface PermitRequestDocumentUploadService {
+
+	
+}

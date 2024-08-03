@@ -1,0 +1,16 @@
+package study.service;
+
+import org.springframework.web.multipart.MultipartFile;
+
+import study.entity.EntryPermitDocumentUploadDetails;
+
+public class PermitRequestDocumentUploadServiceImpl implements PermitRequestDocumentUploadService {
+
+	final String documentType = "Aadhar";
+	@Override
+	public EntryPermitDocumentUploadDetails uploadAadhar(MultipartFile file, String user_id, String reference_id) {
+		
+		return null;
+	}
+
+}

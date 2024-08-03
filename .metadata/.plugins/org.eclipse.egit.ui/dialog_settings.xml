@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="CommitDialog.authorValues">
+		<item value="Tommy Stephen &lt;tommystephen@gmail.com&gt;"/>
+		<item value="tommy &lt;tommy@Lenovo&gt;"/>
+	</list>
+	<list key="CommitDialog.committerValues">
+		<item value="Tommy Stephen &lt;tommystephen@gmail.com&gt;"/>
+		<item value="tommy &lt;tommy@Lenovo&gt;"/>
+	</list>
+	<list key="EGit.KnownHosts">
+		<item value="git.eclipse.org"/>
+		<item value="github.com"/>
+		<item value="bitbucket.org"/>
+	</list>
+	<list key="RepositorySelectionPage.UsedUris">
+		<item value="https://github.com/TommyStephen/"/>
+	</list>
+	<section name="org.eclipse.egit.ui.internal.staging.StagingView">
+		<item key="MAIN_SASH_FORM_ORIENTATION_VERTICAL" value="false"/>
+		<item key="HORIZONTAL_SASH_FORM_WEIGHT" value="398,601"/>
+		<item key="STAGING_SASH_FORM_WEIGHT" value="340,659"/>
+		<item key="sortItemState" value="false"/>
+	</section>
+	<section name="GitCommitMessageComponent">
+		<list key="C:\Data\STS Workspace\BasicApplicationToTestFeinClient\.git">
+			<item value="false"/>
+			<item value="Tommy Stephen &lt;tommystephen@gmail.com&gt;"/>
+			<item value="First Commit"/>
+			<item value="Tommy Stephen &lt;tommystephen@gmail.com&gt;"/>
+			<item value="2532383e06417ab971a93ea1f383c5557dc4b6a3"/>
+			<item value="0"/>
+			<item value="false"/>
+			<item value=""/>
+		</list>
+	</section>
+</section>

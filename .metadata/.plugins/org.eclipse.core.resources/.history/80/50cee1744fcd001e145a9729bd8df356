@@ -1,0 +1,48 @@
+package study.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import study.model.Employee;
+import study.repository.EmployeeRepository;
+
+@Service
+public class EmployeeService {
+
+	@Autowired
+	EmployeeRepository employeeRepository;
+
+	@Autowired
+	PasswordEncoder passwordEncoder;
+
+	public Employee addEmployee(Employee emp) {
+		Employee employee = new Employee();
+		employee.setEmail(emp.getEmail());
+		employee.setPassword(passwordEncoder.encode(emp.getPassword()));
+
+		return employeeRepository.save(employee);
+	}
+
+	public Employee findById(int id) {
+
+		return employeeRepository.findById(id).get();
+	}
+	
+	public Employee findByEmail(String email) {
+		
+		return employeeRepository.findByEmail(email);
+	}
+
+	public boolean verifyEmployee(String email, String password) {
+
+		Employee e = findByEmail(email);
+		if(passwordEncoder.encode(password).equals(e.getPassword())) {
+			return true;
+		}		
+		return false;
+	}
+
+	
+
+}

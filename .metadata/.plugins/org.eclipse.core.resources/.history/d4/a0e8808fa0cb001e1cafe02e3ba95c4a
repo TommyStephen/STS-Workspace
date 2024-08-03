@@ -1,0 +1,42 @@
+package study;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
+
+@Configuration
+public class SecurityConfiguration {
+
+	@Bean
+	PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
+
+	@Bean
+	SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+		http.csrf(AbstractHttpConfigurer::disable)
+				.authorizeHttpRequests(
+						authorizationManagerRequestMatcherRegistry -> authorizationManagerRequestMatcherRegistry
+								.requestMatchers("/register/**").permitAll().requestMatchers("/login/**").permitAll()
+								.requestMatchers("/log/**").permitAll().anyRequest().authenticated())
+				.formLogin(Customizer.withDefaults())
+
+//				.sessionManagement(httpSecuritySessionManagementConfigurer -> httpSecuritySessionManagementConfigurer
+//						.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+				.logout(logout -> logout.logoutUrl("/logout") // Specify the logout URL
+						.logoutSuccessUrl("/login") // Redirect to login page after logout
+						.invalidateHttpSession(true) // Invalidate HTTP session on logout
+						.clearAuthentication(true)); // Clear authentication on logout
+				
+
+		return http.build();
+	}
+
+	
+}
