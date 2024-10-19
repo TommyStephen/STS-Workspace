@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/BasicApplicationToTestFeinClient" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/FeignClientToAccessBasicApp" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/FileAndObjectUpload" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/FileUploadToDirectory" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/JPA_Criteria_Demo" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/OneToMany" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/OneToManyJoinTable" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/OneToOneBiDirectional" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/OneToOneUniDirectional" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/OneToOneWithJoinTable" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/SpecificationDemo" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/northwind" vcs="Git" />
+  </component>
+</project>

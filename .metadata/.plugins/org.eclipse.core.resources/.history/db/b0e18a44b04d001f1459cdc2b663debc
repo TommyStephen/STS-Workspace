@@ -1,9 +1,0 @@
-package study.repository;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import study.entity.EntryPermitDocumentUploadDetails;
-
-public interface EntryPermitDocumentUploadDetailsRepository extends JpaRepository<EntryPermitDocumentUploadDetails, Long> {
-
-}

@@ -33,6 +33,48 @@ public class PermitRequestDocumentUploadController {
         return new ResponseEntity<>(details, HttpStatus.CREATED);
     }
     
+    @PostMapping("/aadhar_ChatGPT")
+    public ResponseEntity<?> uploadAadharChatGPT(@RequestPart("file") MultipartFile file,
+                                          @RequestHeader("user_id") String userId,
+                                          @RequestHeader("reference_id") String referenceId) {
+        // Validate userId and referenceId
+        if (userId == null || userId.trim().isEmpty()) {
+            return new ResponseEntity<>("User ID is required", HttpStatus.BAD_REQUEST);
+        }
+
+        if (referenceId == null || referenceId.trim().isEmpty()) {
+            return new ResponseEntity<>("Reference ID is required", HttpStatus.BAD_REQUEST);
+        }
+
+        // Validate file
+        if (file.isEmpty()) {
+            return new ResponseEntity<>("File is required", HttpStatus.BAD_REQUEST);
+        }
+
+        // Validate file size (e.g., max 5 MB)
+        if (file.getSize() > 5 * 1024 * 1024) {
+            return new ResponseEntity<>("File size exceeds the 5 MB limit", HttpStatus.PAYLOAD_TOO_LARGE);
+        }
+
+        // Validate file type (e.g., accept only PDF or JPEG)
+        String contentType = file.getContentType();
+        if (!(contentType.equals("application/pdf") || contentType.equals("image/jpeg"))) {
+            return new ResponseEntity<>("Only PDF and JPEG files are allowed", HttpStatus.UNSUPPORTED_MEDIA_TYPE);
+        }
+
+        try {
+            // Call service to process the upload
+            EntryPermitDocumentUploadDetails details = uploadService.uploadAadhar(file, userId, referenceId);
+            return new ResponseEntity<>(details, HttpStatus.CREATED);
+
+        } catch (Exception e) {
+            // Handle any unexpected exceptions
+            return new ResponseEntity<>("Failed to upload Aadhar file: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    
+    
+    
     @PostMapping("/police-verification")
     public ResponseEntity<EntryPermitDocumentUploadDetails> uploadPoliceVerification(@RequestPart MultipartFile file,
                                                                          @RequestHeader ("user_id") String userId,
